@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="header">
+    <h1 id="heading-style">Tasks</h1>
+  </div>
+
+  <div class="lists">
+    <ul>
+      <% @tasks.each do |item| %>
+        <div class="list-bar">
+          <li id="list-styles">
+
+            <% if item.completed == false %>
+              <i class="fa-regular fa-circle circle-icon-white"></i>
+            <% else %>
+              <i class="fa-solid fa-circle-check circle-icon-white"></i>
+            <% end %>
+
+            <%= link_to item.title, item, class: 'link-color' %>
+            <a href="#"><i class="fa-solid fa-trash-can bin-red"></i></a>
+          </li>
+        </div>
+      <% end %>
+    </ul>
+
+    <div class="buttons">
+      <%= link_to 'Create New', new_task_path, id: 'btn-large' %>
+    </div>
+  </div>
+</div>
